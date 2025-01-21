@@ -12,14 +12,14 @@ def validatePrice(value):
 # Create your models here.
 class Product(models.Model):
     id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, null=False, blank=False)
     price = models.DecimalField(decimal_places=2, max_digits=10, validators=[validatePrice])
     available = models.BooleanField()
 
 class Customer(models.Model):
     id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=100)
-    address = models.CharField(max_length=50)
+    name = models.CharField(max_length=100, null=False, blank=False)
+    address = models.CharField(max_length=50, null=False, blank=False)
 
 class Order(models.Model):
     id = models.AutoField(primary_key=True)
